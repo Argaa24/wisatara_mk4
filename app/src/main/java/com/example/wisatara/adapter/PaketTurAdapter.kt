@@ -2,6 +2,7 @@ package com.example.wisatara.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wisatara.databinding.ItemRowBinding
@@ -11,6 +12,7 @@ import java.util.Locale
 
 class PaketTurAdapter(
     private var listPaket: MutableList<PaketTurModel>,
+    private val canManageCrud: Boolean = true,
     private val onItemClick: (PaketTurModel) -> Unit,
     private val onEditClick: (PaketTurModel) -> Unit
 ) : RecyclerView.Adapter<PaketTurAdapter.ViewHolder>() {
@@ -38,7 +40,10 @@ class PaketTurAdapter(
 
         holder.binding.root.setOnClickListener { onItemClick(item) }
         holder.binding.btnDetail.setOnClickListener { onItemClick(item) }
-        holder.binding.btnEditShortcut.setOnClickListener { onEditClick(item) }
+        holder.binding.btnEditShortcut.visibility = if (canManageCrud) View.VISIBLE else View.GONE
+        holder.binding.btnEditShortcut.setOnClickListener {
+            if (canManageCrud) onEditClick(item)
+        }
     }
 
     override fun getItemCount(): Int = listPaket.size

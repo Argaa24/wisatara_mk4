@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -46,8 +48,14 @@ class ListDataActivity : AppCompatActivity() {
             finish()
         }
 
+        val canCrud = ProfilActivity.canManageCrud(this)
+        binding.fabAdd.visibility = if (canCrud) View.VISIBLE else View.GONE
         binding.fabAdd.setOnClickListener {
-            startActivity(Intent(this, FormInputActivity::class.java))
+            if (ProfilActivity.canManageCrud(this)) {
+                startActivity(Intent(this, FormInputActivity::class.java))
+            } else {
+                Toast.makeText(this, "Wisatawan tidak dapat menambah paket tur", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.etSearch.addTextChangedListener(object : TextWatcher {
@@ -76,17 +84,23 @@ class ListDataActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
+        val canCrud = ProfilActivity.canManageCrud(this)
         adapter = PaketTurAdapter(
             listPaket = mutableListOf(),
+            canManageCrud = canCrud,
             onItemClick = { item ->
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("EXTRA_PAKET", item)
                 startActivity(intent)
             },
             onEditClick = { item ->
-                val intent = Intent(this, FormUpdateActivity::class.java)
-                intent.putExtra("EXTRA_PAKET", item)
-                startActivity(intent)
+                if (ProfilActivity.canManageCrud(this)) {
+                    val intent = Intent(this, FormUpdateActivity::class.java)
+                    intent.putExtra("EXTRA_PAKET", item)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, "Wisatawan tidak dapat mengubah paket tur", Toast.LENGTH_SHORT).show()
+                }
             }
         )
 

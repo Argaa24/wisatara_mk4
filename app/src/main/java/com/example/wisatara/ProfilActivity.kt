@@ -18,6 +18,13 @@ class ProfilActivity : AppCompatActivity() {
         const val KEY_USER_EMAIL = "user_email"
         const val KEY_USER_ROLE = "user_role"
         const val KEY_LANGUAGE = "app_language"
+
+        fun canManageCrud(context: android.content.Context): Boolean {
+            val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            val role = prefs.getString(KEY_USER_ROLE, "Wisatawan") ?: "Wisatawan"
+            return role.equals("Admin", ignoreCase = true) ||
+                role.equals("Pemandu", ignoreCase = true)
+        }
     }
 
     private lateinit var binding: ActivityProfilBinding

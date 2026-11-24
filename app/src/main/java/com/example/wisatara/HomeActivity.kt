@@ -98,6 +98,12 @@ class HomeActivity : AppCompatActivity() {
                 "Halo, $name!"
             }
         }
+        val canCrud = ProfilActivity.canManageCrud(this)
+        binding.btnBukaKatalog.text = if (canCrud) {
+            "Buka Katalog & CRUD  →"
+        } else {
+            "Jelajahi Katalog Tur  →"
+        }
     }
 
     private fun openHostOrCity(hostName: String, fallbackCity: String) {

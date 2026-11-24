@@ -13,6 +13,11 @@ class FormInputActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!ProfilActivity.canManageCrud(this)) {
+            Toast.makeText(this, "Akses ditolak: Wisatawan tidak dapat menambah data tur", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
         binding = ActivityFormInputBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

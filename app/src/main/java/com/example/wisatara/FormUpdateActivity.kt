@@ -15,6 +15,11 @@ class FormUpdateActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!ProfilActivity.canManageCrud(this)) {
+            Toast.makeText(this, "Akses ditolak: Wisatawan tidak dapat mengubah data tur", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
         binding = ActivityFormUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

@@ -58,13 +58,25 @@ class DetailActivity : AppCompatActivity() {
             showBookingDialog()
         }
 
+        val canCrud = ProfilActivity.canManageCrud(this)
+        binding.btnUbahData.visibility = if (canCrud) android.view.View.VISIBLE else android.view.View.GONE
+        binding.btnHapusData.visibility = if (canCrud) android.view.View.VISIBLE else android.view.View.GONE
+
         binding.btnUbahData.setOnClickListener {
+            if (!ProfilActivity.canManageCrud(this)) {
+                Toast.makeText(this, "Wisatawan tidak dapat mengubah data tur", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             val intent = Intent(this, FormUpdateActivity::class.java)
             intent.putExtra("EXTRA_PAKET", itemPaket)
             startActivity(intent)
         }
 
         binding.btnHapusData.setOnClickListener {
+            if (!ProfilActivity.canManageCrud(this)) {
+                Toast.makeText(this, "Wisatawan tidak dapat menghapus data tur", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             showDeleteConfirmationDialog()
         }
     }
