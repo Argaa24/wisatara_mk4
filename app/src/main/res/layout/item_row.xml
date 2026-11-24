@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardBackgroundColor="@color/surface_white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Top Banner Header Area -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@color/forest_green_dark">
+
+            <!-- Title Overlay inside Banner -->
+            <TextView
+                android:id="@+id/tvCategoryBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="WISATARA TOUR"
+                android:textColor="#40FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!-- Top Left Badge -->
+            <TextView
+                android:id="@+id/tvPrivateBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="12dp"
+                android:background="@drawable/bg_pill_mint"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="🛡️ 100% Private Tour"
+                android:textColor="@color/forest_green_dark"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <!-- Top Right Rating Badge -->
+            <TextView
+                android:id="@+id/tvRatingBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="12dp"
+                android:background="@drawable/bg_pill_white"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="★ 4.9 (124)"
+                android:textColor="@color/text_dark"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <!-- Guide Avatar Overlapping -->
+            <RelativeLayout
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/ivGuideAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_avatar_placeholder" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/ic_check"
+                    app:tint="@color/mint_accent_light" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- Card Body -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Tour Title -->
+            <TextView
+                android:id="@+id/tvJudulTur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The 10 Tastings Street Food Jogja"
+                android:textColor="@color/text_dark"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Guide Subtitle -->
+            <TextView
+                android:id="@+id/tvNamaPemandu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Budi - The Food Lover ✔️ • Bersertifikat HPI"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp" />
+
+            <!-- 3 Info Pills Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvDurasiPill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_pill_mint"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="🕒 3 Jam"
+                    android:textColor="@color/forest_green_dark"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvKuotaPill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_pill_mint"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="👥 Maks. 6 Orang"
+                    android:textColor="@color/forest_green_dark"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvBahasaPill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_mint"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="文A ID, EN"
+                    android:textColor="@color/forest_green_dark"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Bottom Price & Action Row -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mulai dari"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvHargaPerOrang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 350.000 / orang"
+                        android:textColor="@color/emerald_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Quick Edit Button -->
+                    <ImageView
+                        android:id="@+id/btnEditShortcut"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_pill_mint"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_edit"
+                        app:tint="@color/emerald_primary" />
+
+                    <!-- Detail Arrow Button -->
+                    <ImageView
+                        android:id="@+id/btnDetail"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_circle_green"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/white" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
